@@ -16,14 +16,5 @@ const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
-// MySQL
-const mysql = require("mysql");
-const connection = mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password: "",
-    database: "burgers_db"
-});
-
 
 
