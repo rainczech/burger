@@ -14,13 +14,18 @@ let orm = {
         let queryString = "INSERT INTO ?? WHERE ?? VALUES ?";
         connection.query(queryString, function(err, result){
             if(err) throw err;
+            callback(result);
             
         })
-    }
+    },
 
 // update one
-    updateOne: function(table, column, values, callback){
-        let queryString = "Update ?? SET ? = ? WHERE ?? = ?"
+    updateOne: function(table, condition, column, callback){
+        let queryString = "Update ?? SET ? WHERE ??";
+        connection.query(queryString, function(err, result){
+            if (err) throw err;
+            callback(result);
+        })
     }
 };
 
