@@ -1,4 +1,3 @@
-var mysql = require("mysql")
 
 // MySQL
 const mysql = require("mysql");

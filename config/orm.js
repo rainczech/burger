@@ -10,9 +10,9 @@ let orm = {
         });
     },
 // insert one
-    createOne: function(table, column, values, callback){
-        let queryString = "INSERT INTO ?? WHERE ?? VALUES ?";
-        connection.query(queryString, function(err, result){
+    createOne: function(table, values, callback){
+        let queryString = "INSERT INTO ?? SET?";
+        connection.query(queryString,[table, values], function(err, result){
             if(err) throw err;
             callback(result);
             

@@ -2,6 +2,11 @@
     {{#each burgers}}
         <li>{{id}}</li>
         <li>{{burger_name}}</li>
-        <li>{{devoured}}</li>
+        <li><button class="devour" value={{id}}> {{devoured}}</button></li>
     {{/each}}
 </ul>
+
+<form>
+    Burger Name: <input id="bname" type="text" name="bname">
+    <input id="button" type="submit" value="submit">
+</form>

@@ -1,19 +1,19 @@
-// import express
-const express = require("express");
-// import burger.js
-const burger = require("../models/burger.js");
+const orm =require("../config/orm.js")
 
-// create router
-
-app.get("/", function(req, res){
-    burger.all(function(data){
-    res.render("index", {
-        burgers: data
+module.exports=function(app) {
+    app.get("/", function(req, res){
+        orm.allBurgers("burgers",function(response){
+            res.render("index", {burgers:response})
+        })
     })
-})
-})
-
-app.post("/api/burgers", function(req, res){
-    burger.create(function)
-})
-// export router
+    app.post("/api/burgers", function(req, res){
+        console.log("Body is " +req.body)
+        orm.createOne("burgers", req.body,function(response){
+            res.redirect("/")
+        })
+    })
+    app.post('/api/burgers/:id',function(req,res){
+        console.log("Body is ", req.body);
+        console.log("Params are ", req.params);
+      })
+};
